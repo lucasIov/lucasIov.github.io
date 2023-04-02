@@ -1,0 +1,710 @@
+* {transition: all 0.5s ease;}
+
+:root {
+	--dark-CGbgColor: rgba(175, 198, 174, 0.8);
+	--dark-CGbgColorNA: rgb(175, 198, 174);
+	--dark-GlobalBGColor: rgb(52, 69, 54);
+	--dark-GlobalColor: rgba(52, 69, 54, 0.8);
+	--dark-GlobalColor2: rgba(152, 169, 154, 0.8);
+	--dark-ErrorColor: rgba(213, 94, 94, 0.8);
+	--dark-TextColor: rgb(0, 0, 0);
+
+	--light-CGbgColor: rgba(125, 148, 124, 0.8);
+	--light-CGbgColorNA: rgb(125, 148, 124);
+	--light-GlobalBGColor: rgb(213, 227, 215);
+	--light-GlobalColor: rgba(213, 227, 215, 0.8);
+	--light-GlobalColor2: rgba(113, 127, 115, 0.8);
+	--light-ErrorColor: rgba(234, 124, 124, 0.8);
+	--light-TextColor: rgb(255, 255, 255);
+}
+
+html {
+	overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		background-color: var(--dark-GlobalBGColor);
+		color: var(--light-TextColor);
+		--TextColor: var(--light-TextColor);
+		--CGbgColor: var(--dark-CGbgColor);
+		--CGbgColorNA: var(--dark-CGbgColorNA);
+		--GlobalBGColor: var(--dark-GlobalBGColor);
+		--GlobalColor: var(--dark-GlobalColor);
+		--GlobalColor2: var(--dark-GlobalColor2);
+		--ErrorColor: var(--dark-ErrorColor);
+	}
+}
+@media (prefers-color-scheme: light) {
+	html {
+		background-color: var(--light-GlobalBGColor);
+		color: var(--dark-TextColor);
+		--TextColor: var(--dark-TextColor);
+		--CGbgColor: var(--light-CGbgColor);
+		--CGbgColorNA: var(--light-CGbgColorNA);
+		--GlobalBGColor: var(--light-GlobalBGColor);
+		--GlobalColor: var(--light-GlobalColor);
+		--GlobalColor2: var(--light-GlobalColor2);
+		--ErrorColor: var(--light-ErrorColor);
+	}
+}
+
+/* light/dark mode switch in JS */
+html[theme="dark"] {
+	background-color: var(--dark-GlobalBGColor);
+	color: var(--light-TextColor);
+	--TextColor: var(--light-TextColor);
+	--CGbgColor: var(--dark-CGbgColor);
+	--CGbgColorNA: var(--dark-CGbgColorNA);
+	--GlobalBGColor: var(--dark-GlobalBGColor);
+	--GlobalColor: var(--dark-GlobalColor);
+	--GlobalColor2: var(--dark-GlobalColor2);
+	--ErrorColor: var(--dark-ErrorColor);
+}
+
+html[theme="light"] {
+	background-color: var(--light-GlobalBGColor);
+	color: var(--dark-TextColor);
+	--TextColor: var(--dark-TextColor);
+	--CGbgColor: var(--light-CGbgColor);
+	--CGbgColorNA: var(--light-CGbgColorNA);
+	--GlobalBGColor: var(--light-GlobalBGColor);
+	--GlobalColor: var(--light-GlobalColor);
+	--GlobalColor2: var(--light-GlobalColor2);
+	--ErrorColor: var(--light-ErrorColor);
+}
+
+html {overflow: hidden;}
+a {
+	font-weight: bold;
+	color: var(--textColor);
+	cursor: pointer;
+}
+
+/* inputs */
+button, input[type="button"] {
+	border: none;
+	background: var(--GlobalColor);
+	color: var(--TextColor);
+	border-radius: 5px;
+	transition: all 0.5s;
+}
+button:hover, input[type="button"]:hover {background: var(--GlobalColor2);}
+button:active, input[type="button"]:active {transform: scale(1.1);}
+
+/* bottom */
+html .bottom, html[page="home"] .bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 98%;
+	padding: 1%;
+	opacity: 0;
+	animation: bottomOn 0.75s cubic-bezier(.18,.89,.32,1.28) forwards;
+}
+
+@keyframes bottomOn {
+	0% {
+		opacity: 0;
+		transform: translate(0, 100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
+/* center element */
+.centerGrid {
+	/* --BorRadCorner: 10px; */
+	--BorRadCorner: 1000px;
+	--BorRad: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: grid;
+	border-color: #0000;
+
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-gap: 10px;
+	grid-template-areas: "a b c c" "a d d e" "f f f g";
+
+	border-radius: 10px;
+	height: 80%;
+	min-height: 400px;
+	aspect-ratio: 1/1;
+	animation: centerGridOn 0.75s cubic-bezier(1,0,.07,1) forwards;
+}
+
+@keyframes centerGridOn {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.5);
+		overflow: hidden;
+		border-radius: 25%;
+	}
+	75% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1.1);
+		overflow: hidden;
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+		overflow: visible;
+		border-radius: 0;
+	}
+}
+
+.centerGrid > div {
+	overflow: hidden;
+	background-color: var(--CGbgColor);
+	box-shadow: 0px 0px 30px 0px rgba(100, 100, 100, 0.2);
+	transition: all 0.5s ease;
+	border-radius: var(--BorRad);
+	cursor: pointer;
+	z-index: 1;
+}
+
+.centerGrid > div:hover {
+	box-shadow: 0px 0px 30px 0px rgba(100, 100, 100, 0.5);
+	background-color: var(--CGbgColorNA);
+	transform: scale(1.05);
+	z-index: 2;
+}
+
+.centerGrid > div:nth-child(1) {
+	grid-area:a;
+	border-top-left-radius: var(--BorRadCorner);
+}
+.centerGrid > div:nth-child(2) {grid-area:b;}
+.centerGrid > div:nth-child(3) {
+	grid-area:c;
+	border-top-right-radius: var(--BorRadCorner);
+}
+.centerGrid > div:nth-child(4) {grid-area:d;} /* center */
+.centerGrid > div:nth-child(5) {grid-area:e;}
+.centerGrid > div:nth-child(6) {
+	grid-area:f;
+	border-bottom-left-radius: var(--BorRadCorner);
+}
+.centerGrid > div:nth-child(7) {
+	grid-area:g;
+	border-bottom-right-radius: var(--BorRadCorner);
+}
+
+/* a */
+.conf, html[page=home] > body > .conf {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 50px;
+	aspect-ratio: 1/1;
+	font-size: 1.5em;
+	transform: scale(0);
+	animation: scaleUp 0.5s 250ms forwards;
+}
+
+@keyframes scaleUp {
+	0% {transform: scale(0);}
+	100% {transform: scale(1);}
+}
+
+html[page] .conf {
+	top: 5px;
+	right: 5px;
+	width: 30px;
+	font-size: 1em;
+}
+
+/* thème */
+.conf > div.theme > svg > path {fill: var(--GlobalColor2);}
+.conf > div.theme > svg:hover {transform: scale(1.1);}
+
+/* lang */
+.conf > div.lang > svg {
+	color: var(--GlobalColor2);
+	font-weight: bold;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 10px;
+}
+.conf > div.lang > svg:hover {transform: scale(1.1);}
+
+/* text of contact */
+.centerGrid > div:nth-child(6),
+.centerGrid > div:nth-child(3),
+.centerGrid > div:nth-child(2),
+.centerGrid > div:nth-child(1) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--dark-TextColor);
+}
+.centerGrid > div:nth-child(6) > span,
+.centerGrid > div:nth-child(3) > span,
+.centerGrid > div:nth-child(2) > span,
+.centerGrid > div:nth-child(1) > span {
+	display: inherit;
+	flex: 0 0 50%;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+/* this is for the divs with pictures in background */
+div.Picture {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+div.Picture > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: all 0.5s ease;
+}
+div.Picture:hover > img {filter: brightness(0.5);}
+div.Picture > span {
+	position: absolute;
+	white-space: nowrap;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	color: var(--light-TextColor);
+	font-size: 200%;
+	font-weight: bold;
+	pointer-events: none;
+	transition: all 0.5s ease
+}
+div.Picture:hover > span {opacity: 1;}
+
+text {
+	color: var(--dark-TextColor);
+	padding: 10px;
+	font-size: 1.1em;
+	font-family: 'Courier New', Courier, monospace;
+	overflow-y: auto;
+}
+text, html[page="home"] > body > div.centerGrid text {visibility: hidden;}
+html[page] text {visibility: visible;}
+
+html div.centerGrid > div > * {
+	flex: 0 0 100%;
+	transition: all 0.5s ease;
+}
+
+html .centerGrid > div:nth-child(6) text,
+html .centerGrid > div:nth-child(3) text,
+html .centerGrid > div:nth-child(1) text {position: absolute; opacity: 0;}
+
+/* back button */
+div.back {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	padding-inline: 10px;
+	padding-block: 2px;
+	border-radius: 10px;
+	background-color: var(--GlobalColor2);
+	cursor: pointer;
+	font-family: 'Courier New', Courier, monospace;
+	z-index: 10;
+}
+div.back, html[page="home"] > body > div.back {
+	opacity: 0;
+	transform: scale(0);
+	pointer-events: none;
+}
+html[page] div.back {
+	opacity: 1;
+	transform: scale(1);
+	pointer-events: auto; 
+}
+div.back:hover {background-color: var(--GlobalColor);}
+
+/* contact page */
+contact > div > * {
+	display: block;
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid var(--GlobalColor);
+	margin-bottom: 4px;
+	border-radius: 5px;
+}
+contact > div > *:focus {
+	border-bottom: 2px solid var(--GlobalColor2);
+}
+contact > div > input {height: 25px;}
+contact > div > textarea {
+	resize: none;
+	height: 100px
+}
+contact > button {
+	border: none;
+	background: var(--GlobalColor);
+	color: var(--TextColor);
+	font-size: 1.1em;
+	border-radius: 5px;
+	width: 100%;
+}
+contact > button:hover {background: 2px solid var(--GlobalColor2);}
+
+/* galrie page */
+galrie {
+	display: flex;
+	flex-wrap: wrap;
+}
+galrie > * {
+	flex: 1 1 500px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-column-gap: 15px;
+	height: 200px;
+	background: var(--GlobalColor);
+	cursor: pointer;
+	border-radius: var(--BorRad);
+	margin: 5px;
+	overflow: hidden;
+	place-items: inherit;
+	align-items: center;
+}
+galrie > * > img,
+galrie > * > video {
+	grid-area: 1 / 1 / 3 / 2;
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+galrie > * > div.name {
+	grid-area: 1 / 2 / 2 / 3;
+	color: var(--light-TextColor);
+	font-size: 1.2em;
+	font-weight: bold;
+}
+galrie > * > div.desc {
+	grid-area: 2 / 2 / 3 / 3;
+	color: var(--light-TextColor);
+	font-size: 1em;
+	font-style: italic;
+}
+
+.creationList {
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+}
+
+.creationList > * {
+	flex: 1 0 500px;
+	display: grid;
+	height: 200px;
+	background: var(--GlobalColor);
+	cursor: pointer;
+	border-radius: var(--BorRad);
+	margin: 5px;
+	overflow: hidden;
+	place-items: inherit;
+	align-items: center;
+}
+
+/* error */
+*[error="true"] {
+	border-bottom-color: var(--ErrorColor);
+	animation: trem 0.5s linear;
+}
+
+@keyframes trem {
+	0% {transform: translateX(0px);}
+	10% {transform: translateX(10px);}
+	20% {transform: translateX(-10px);}
+	30% {transform: translateX(0px);}
+	40% {transform: translateX(-10px);}
+	50% {transform: translateX(0px);}
+}
+
+/* start of aboutMe page */
+html[page="aboutMe"] .centerGrid {
+	height: 90%;
+	min-height: 100px;
+	width: 90%;
+	min-width: 100px;
+	transition: all 1s ease;
+
+	grid-template-columns: 0fr 1fr 1fr 0fr;
+	grid-template-rows: 0fr 1fr 0fr;
+	grid-gap: 0px;
+	grid-template-areas: "a b c c" "a d d e" "f f f g";
+}
+html[page="aboutMe"] .centerGrid > div {
+	opacity: 0;
+	transform: scale(0);
+	cursor: auto;
+}
+html[page="aboutMe"] .centerGrid > div:nth-child(4) {
+	opacity: 1;
+	transform: translate(0, 0);
+	box-shadow: 0px 0px 30px 0px rgba(100, 100, 100, 0.6);
+}
+html[page="aboutMe"] .centerGrid > div:nth-child(4) > div.Picture {
+	width: 300px;
+	object-fit: cover;
+	transition: all 0.5s ease;
+}
+html[page="aboutMe"] .centerGrid > div:nth-child(4) > div.Picture > img {filter: brightness(0.5);}
+html[page="aboutMe"] .centerGrid > div:nth-child(4) > div.Picture > span {opacity: 0;}
+html[page="aboutMe"] .centerGrid > div {display: flex;}
+html[page="aboutMe"] .centerGrid > div > * {flex: 1 1 0;}
+/* end of aboutMe page */
+
+/* start of contact page */
+html[page="contact"] .centerGrid {
+	height: 90%;
+	min-height: 100px;
+	width: 90%;
+	min-width: 100px;
+	transition: all 1s ease;
+
+	grid-template-columns: 0fr 0fr 1fr 1fr;
+	grid-template-rows: 1fr 0fr 0fr;
+	grid-gap: 0px;
+	grid-template-areas: "a b c c" "a d d e" "f f f g";
+}
+html[page="contact"] .centerGrid > div {
+	opacity: 0;
+	transform: scale(0);
+	cursor: auto;
+}
+
+html[page="contact"] .centerGrid > div:nth-child(3) text {
+	position: relative;
+	opacity: 1;
+	display: flex;
+	flex: 0 1 70%;
+}
+html[page="contact"] .centerGrid > div:nth-child(3) > span {opacity: 0; position: absolute;}
+html[page="contact"] .centerGrid > div:nth-child(3) {
+	opacity: 1;
+	transform: translate(0, 0);
+	box-shadow: 0px 0px 30px 0px rgba(100, 100, 100, 0.6);
+	border-radius: var(--BorRad);
+}
+html[page="contact"] .centerGrid > div:nth-child(3) > text > div {
+	flex: 1 1 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+html[page="contact"] .centerGrid > div:nth-child(3) > text > div > a {
+	text-decoration: none;
+	color: var(--dark-TextColor);
+}
+html[page="contact"] .centerGrid > div:nth-child(3) > text > div > a:hover {transform: translateX(5px);}
+html[page="contact"] .centerGrid > div:nth-child(3) > text > div > a > span {
+	position: relative;
+	top: -5px;
+}
+/* end of aboutMe page */
+
+/* start of aboutSite */
+html[page="aboutSite"] .centerGrid {
+	height: 90%;
+	min-height: 100px;
+	width: 90%;
+	min-width: 100px;
+	transition: all 1s ease;
+
+	grid-template-columns: 1fr 1fr 1fr 0fr;
+	grid-template-rows: 0fr 0fr 1fr;
+	grid-gap: 0px;
+	grid-template-areas: "a b c c" "a d d e" "f f f g";
+}
+html[page="aboutSite"] .centerGrid > div {
+	opacity: 0;
+	transform: scale(0);
+	cursor: auto;
+}
+html[page="aboutSite"] .centerGrid > div:nth-child(6) > span {
+	opacity: 0;
+	visibility: hidden;
+}
+html[page="aboutSite"] .centerGrid > div:nth-child(6) {
+	opacity: 1;
+	transform: translate(0, 0);
+	box-shadow: 0px 0px 30px 0px rgba(100, 100, 100, 0.6);
+	border-radius: var(--BorRad);
+	overflow-y: clip;
+}
+html[page="aboutSite"] .centerGrid > div {
+	display: flex;
+	flex-direction: column;
+}
+html[page="aboutSite"] .centerGrid > div:nth-child(6) > text {
+	opacity: 1;
+	width: 75%;
+}
+html[page="aboutSite"] .centerGrid > div > * {flex: 1 1 0;}
+/* end of aboutSite */
+
+/* start of creation page */
+html[page="creation"] .centerGrid {
+	height: 90%;
+	min-height: 100px;
+	width: 90%;
+	min-width: 100px;
+	transition: all 1s ease;
+
+	grid-template-columns: 1fr 0fr 0fr 0fr;
+	grid-template-rows: 1fr 1fr 0fr;
+	grid-gap: 0px;
+	grid-template-areas: "a b c c" "a d d e" "f f f g";
+}
+html[page="creation"] .centerGrid > div {
+	opacity: 0;
+	transform: scale(0);
+	cursor: auto;
+}
+html[page="creation"] .centerGrid > div:nth-child(1) {
+	opacity: 1;
+	transform: translate(0, 0);
+	box-shadow: 0px 0px 30px 0px rgba(100, 100, 100, 0.6);
+	border-radius: var(--BorRad);
+}
+html[page="creation"] .centerGrid > div {
+	display: flex;
+	flex-direction: column;
+}
+html[page="creation"] .centerGrid > div:nth-child(1) > span {opacity: 0; position: absolute;}
+html[page="creation"] .centerGrid > div:nth-child(1) > text {
+	position: static;
+	opacity: 1;
+	width: 100%;
+	overflow-y: auto;
+}
+html[page="creation"] .centerGrid > div > * {flex: 1 1 0;}
+/* end of creation page */
+
+/* phone vertion */
+@media screen and (max-width: 600px) {
+	.centerGrid {
+		height: 99%;
+		min-height: 600px;
+		width: 80%;
+		min-width: 400px;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+		grid-template-areas: "a a" "b c" "d d" "f e" "f g";
+	}
+	.centerGrid > div:nth-child(1) {
+		grid-area:a;
+		border-top-left-radius: var(--BorRadCorner);
+		border-top-right-radius: var(--BorRadCorner);
+	}
+	.centerGrid > div:nth-child(2) {grid-area:b;}
+	.centerGrid > div:nth-child(3) {
+		grid-area:c;
+		border-top-right-radius: var(--BorRad);
+	}
+	.centerGrid > div:nth-child(4) {grid-area:d;} /* center */
+	.centerGrid > div:nth-child(5) {grid-area:e;}
+	.centerGrid > div:nth-child(6) {
+		grid-area:f;
+		border-bottom-left-radius: var(--BorRadCorner);
+	}
+	.centerGrid > div:nth-child(7) {
+		grid-area:g;
+		border-bottom-right-radius: var(--BorRadCorner);
+	}
+
+	/* this is for the divs with pictures in background */
+	div.Picture > img {filter: brightness(0.5);}
+	div.Picture > span {opacity: 1;}
+
+	html[page="aboutMe"] .centerGrid > div {flex-direction: column;}
+	html[page="aboutMe"] .centerGrid > div:nth-child(4) > div.Picture {
+		width: 100%;
+		height: 100px;
+		min-height: 50px;
+	}
+	html[page="contact"] .centerGrid > div:nth-child(3) text {flex-direction: column;}
+	html[page="contact"] .centerGrid > div:nth-child(3) text > div {margin-top: 10px;}
+
+	galrie > * {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "a";
+		justify-content: center;
+	}
+
+	galrie > * > img,
+	galrie > * > video {
+		grid-area: a;
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+		filter: brightness(0.7);
+	}
+	galrie > * > div.name {
+		place-self: center;
+		grid-area: a;
+		color: var(--light-TextColor);
+		font-size: 1.2em;
+		font-weight: bold;
+		z-index: 1;
+	}
+	galrie > * > div.desc {
+		opacity: 0;
+		visibility: hidden;
+		grid-area: a;
+		color: var(--light-TextColor);
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+}
+
+/* ultra phone vertion */
+@media screen and (max-width: 400px) {
+	.centerGrid {
+		height: 100%;
+		min-height: 100px;
+		width: 100%;
+		min-width: 100px;
+		border: 10px solid #0000;
+		box-sizing: border-box;
+		grid-template-columns: 2fr;
+		grid-template-rows: 1fr 2fr 2fr 2fr 1fr;
+		grid-template-areas: "g" "a" "d" "f" "c";
+	}
+	.centerGrid > div:nth-child(1) {
+		grid-area:a;
+		border-radius: var(--BorRad);
+	}
+	.centerGrid > div:nth-child(2) {display: none;}
+	.centerGrid > div:nth-child(3) {
+		grid-area:c;
+		border-bottom-left-radius: var(--BorRadCorner);
+		border-bottom-right-radius: var(--BorRadCorner);
+	}
+	.centerGrid > div:nth-child(4) {grid-area:d;} /* center */
+	.centerGrid > div:nth-child(5) {display: none;}
+	.centerGrid > div:nth-child(6) {
+		grid-area:f;
+		border-bottom-left-radius: var(--BorRad);
+	}
+	.centerGrid > div:nth-child(7) {
+		grid-area:g;
+		border-top-left-radius: var(--BorRadCorner);
+		border-top-right-radius: var(--BorRadCorner);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.conf, html[page=home] > body > .conf {opacity: 0; display: none;}
+	.bottom, html[page=home] > body > .bottom {opacity: 0; display: none;}
+}

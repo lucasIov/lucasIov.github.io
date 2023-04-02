@@ -1,0 +1,41 @@
+[
+	{
+		"name": "logo",
+		"cover": "./creations/images/logo_full_dark.jpg",
+		"hover": [
+			"./creations/images/logo_full_light.jpg",
+			"./creations/images/logo_animation.mp4"
+		]
+	},
+	{
+		"name": "generic",
+		"cover": "./creations/images/generic.mp4",
+		"hover": [
+			"./creations/images/generic_expert.jpg"
+		]
+	},
+	{
+		"name": "esthetic code",
+		"cover": "./creations/images/code.jpg"
+	},
+	{
+		"name": "fractal creator",
+		"cover": "./creations/images/fractal.jpg"
+	},
+	{
+		"name": "plot in night",
+		"cover": "./creations/images/plot_night.jpg"
+	},
+	{
+		"name": "like netflix",
+		"cover": "./creations/images/ceup.mp4"
+	},
+	{
+		"name": "city background",
+		"cover": "./creations/images/city.mp4"
+	},
+	{
+		"name": "'BRISES' short film",
+		"cover": "./creations/images/BRISES.jpg"
+	}
+]

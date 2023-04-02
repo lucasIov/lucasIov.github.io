@@ -1,54 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html page="home">
+	<head>
+		<title>Lucas Iovine</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="preload" href="/style.css" as="style">
+		<link rel="preload" href="/script.js" as="script">
+
+		<meta property="og:title"		content="Lucas Iovine">
+		<meta property="og:type"		content="website">
+		<meta property="og:url"			content="https://lucasiov.github.io/">
+		<meta property="og:image"		content="https://lucasiov.github.io/ressources/id-ph_lucas-IOVINE.jpg">
+		<meta property="og:description"	content="">
+		<meta name="author"				content="LUCJD">
+		<meta name="description" 		content="this is my personal website where I will post my creations and you can contact me">
+		<meta name="keywords" 			content="lucas iovine, lucas, iovine, LUCJD, lucjd, lucasiov, lucasiov">
+		<meta name="theme-color" 		content="#ffffff">
+
+		<link rel="icon" href="/favicon.svg">
+		<link rel="stylesheet" href="/style.css">
+
+		<script src="/script.js"></script>
+	</head>
 	<body>
 		<noscript>
 			<style>
-html {background-color: #1e1e22;overflow-y: hidden;}
-noscript {
-	/*set at the center*/
-	position: absolute;
-	width: 500px;
-	margin-inline: auto; margin-top: 10px;
-	left: 0; right: 0; top: 50%;
-	transform: translate(0%, -50%);
-	/*style*/
-	overflow-y: auto;
-	background-color: rgb(43, 42, 51);
-	padding: 20px;
-	border-radius: 10px;
-	border: 1px solid rgb(73, 73, 73);
-	color: white;
-	font-family: consolas, monospace; font-size: 15px;
-	transition: all 1s;
-}
-
-@media only screen and (max-width: 600px) {
-	noscript {
-		width: 90%;
-		top: 0;
-		transform: translate(0%, 0%);
-	}
-}
-
-noscript > span::after {
-	content: "";
-	display: inline-block;
-	position: relative;
-	width: 10px; height: 1em;
-	top: 1px;
-	left: 4px;
-	background-color: white;
-	/*animation*/
-	animation: blink 1s infinite;
-}
-
-@keyframes blink {
-	0% {opacity: 0;}
-	50% {opacity: 1;}
-	100% {opacity: 0;}
-}
+html{background-color:var(--GlobalColor);overflow-y:hidden;}
+noscript{position:absolute;width:500px;margin-inline:auto;margin-top:10px;left:0;right:0;top:50%;transform:translate(0%,-50%);overflow-y:auto;background-color:var(--GlobalBGColor);padding:20px;border-radius:10px;border:1px solid var(--CGbgColorNA);color:var(--TextColor);font-family:consolas,monospace;font-size:15px;transition:all 1s;}
+@media only screen and(max-width:600px){noscript{width:90%;top:0;transform:translate(0%,0%);}}
+noscript>span::after{content:"";display:inline-block;position:relative;width:10px;height:1em;top:1px;left:4px;background-color:var(--TextColor);animation:blink 1s infinite alternate;}
+@keyframes blink{0%{opacity:0}100%{opacity:1}}
+body>*:not(noscript){display:none!important;}
 			</style>
 			<span>this&nbsp;web&nbsp;site&nbsp;need&nbsp;javascript&nbsp;to&nbsp;work&nbsp;properly</span>
 		</noscript>
+		<div class="centerGrid">
+			<div tab="creation">
+				<span>creation</span>
+				<text>
+					<div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+						nothing here yet
+					</div>
+				</text>
+			</div>
+			<div></div>
+			<div tab="contact">
+				<span>contact</span>
+				<text>
+					<contact>
+						<div>
+							<span style="border-bottom: none;">how I can contact you?:</span>
+							<input name="mail" type="text" placeholder="mail, phone or any other contact">
+						</div>
+						<div>
+							<span style="border-bottom: none;">what happen?:</span>
+							<input name="object" type="text" placeholder="object">
+							<textarea name="message" placeholder="message"></textarea>
+						</div>
+						<button name="submit">send</button>
+					</contact>
+					<div>
+						<span>find me on</span>
+						<a href="https://www.linkedin.com/in/lucas-iovine-/" target="_blank">
+							<!-- get from linkedin -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0a66c2"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
+							<span>LinkedIn</span>
+						</a>
+						<a href="https://github.com/lucasIov/" target="_blank">
+							<!-- get from github -->
+							<svg width="24" height="24" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+							<span>Github</span>
+						</a>
+						<a href="https://www.instagram.com/lucas.iovine/" target="_blank">
+							<!-- get from instagrame -->
+							<svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.982c2.937 0 3.285.011 4.445.064a6.087 6.087 0 0 1 2.042.379 3.408 3.408 0 0 1 1.265.823 3.408 3.408 0 0 1 .823 1.265 6.087 6.087 0 0 1 .379 2.042c.053 1.16.064 1.508.064 4.445s-.011 3.285-.064 4.445a6.087 6.087 0 0 1-.379 2.042 3.643 3.643 0 0 1-2.088 2.088 6.087 6.087 0 0 1-2.042.379c-1.16.053-1.508.064-4.445.064s-3.285-.011-4.445-.064a6.087 6.087 0 0 1-2.043-.379 3.408 3.408 0 0 1-1.264-.823 3.408 3.408 0 0 1-.823-1.265 6.087 6.087 0 0 1-.379-2.042c-.053-1.16-.064-1.508-.064-4.445s.011-3.285.064-4.445a6.087 6.087 0 0 1 .379-2.042 3.408 3.408 0 0 1 .823-1.265 3.408 3.408 0 0 1 1.265-.823 6.087 6.087 0 0 1 2.042-.379c1.16-.053 1.508-.064 4.445-.064M12 1c-2.987 0-3.362.013-4.535.066a8.074 8.074 0 0 0-2.67.511 5.392 5.392 0 0 0-1.949 1.27 5.392 5.392 0 0 0-1.269 1.948 8.074 8.074 0 0 0-.51 2.67C1.012 8.638 1 9.013 1 12s.013 3.362.066 4.535a8.074 8.074 0 0 0 .511 2.67 5.392 5.392 0 0 0 1.27 1.949 5.392 5.392 0 0 0 1.948 1.269 8.074 8.074 0 0 0 2.67.51C8.638 22.988 9.013 23 12 23s3.362-.013 4.535-.066a8.074 8.074 0 0 0 2.67-.511 5.625 5.625 0 0 0 3.218-3.218 8.074 8.074 0 0 0 .51-2.67C22.988 15.362 23 14.987 23 12s-.013-3.362-.066-4.535a8.074 8.074 0 0 0-.511-2.67 5.392 5.392 0 0 0-1.27-1.949 5.392 5.392 0 0 0-1.948-1.269 8.074 8.074 0 0 0-2.67-.51C15.362 1.012 14.987 1 12 1Zm0 5.351A5.649 5.649 0 1 0 17.649 12 5.649 5.649 0 0 0 12 6.351Zm0 9.316A3.667 3.667 0 1 1 15.667 12 3.667 3.667 0 0 1 12 15.667Zm5.872-10.859a1.32 1.32 0 1 0 1.32 1.32 1.32 1.32 0 0 0-1.32-1.32Z"/></svg>
+							<span>Instagram</span>
+						</a>
+					</div>
+				</text>
+			</div>
+			<div tab="aboutMe">
+				<style scoped>
+.CV{font-family:consolas,monospace;font-size:15px;}
+.CV h1{margin-top:0px;font-size:1.5em;text-align:center;}
+.CV h2{font-size:1.2em;}
+.CV ul{list-style-type:none;margin:0px;margin-left:1px;margin-block:5px;padding:2px;}
+.CV ul>li{margin-left:5px;}
+.CV li{list-style-type:none;margin:0;padding:2px;}
+.CV li:hover, .CV ul:hover {background-color:var(--GlobalColor);border-radius:2px;overflow:hidden;}
+.CV>div{margin:4px 0;overflow:hidden;padding:10px;padding-block:25px;background-color:var(--GlobalBGColor);color:var(--TextColor);border-radius:var(--BorRad);}
+.CV>div:not(:first-child)>*:not(h1){opacity:0;}
+.CV>div:not(:first-child):hover>*:not(h1){opacity:1;}
+.CV>div:not(:first-child){max-height:1.5em;transition:all 1s ease-in-out 0s;}
+.CV>div:not(:first-child):hover{background-color:var(--GlobalColor);border-radius:15px;max-height:10000px;}
+@media screen and (max-width:600px){.CV>div:not(:first-child)>*:not(h1){opacity:1;}.CV>div:not(:first-child){max-height:10000px;}}
+@media (hover: none) {.CV>div:not(:first-child)>*:not(h1){opacity:1;}.CV>div:not(:first-child){max-height:10000px;}}
+					</style>
+				<div class="Picture">
+					<img src="/ressources/id-ph_lucas-IOVINE.jpg" alt="Lucas Iovine profile picture">
+					<span>about me</span>
+				</div>
+				<text>
+				</text>
+			</div>
+			<div></div>
+			<div tab="aboutSite">
+				<span>about this site</span>
+				<text style="height: 100%;">
+<br>Hello,
+<br>my name is Lucas Iovine, I'm a 18 years old french student and I'm currently in cinema studies; I'm passionate about programming and web development. So I decided to create this website to present my skills and my projects.
+<br><br>This website was created in HTML, CSS and JavaScript. It is hosted by GitHub Pages and the source code is available on <a href="https://github.com/lucasIov/lucasIov.github.io">GitHub</a>.<br>
+<br><br>Regarding the use of cookies, the site does not use them. For statistics (traffic, visits), I use my own scripts, ALL DATA are anonymous, you can check the source code of the script <a href="/script.js">here</a>.
+<br><br>Finally the site is under development, it will therefore be regularly updated. If you wish you can contact me by the <a href="#contact">contact</a> tab to give me your remarks or suggestions.
+<br><br>Lucas Iovine
+				</text>
+			</div>
+			<div></div>
+		</div>
+		<div class="back">back</div>
+		<div class="conf">
+			<div class="theme">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M26 4 19 4 15 0 11 4 4 4 4 11 0 15 4 19 4 26 11 26 15 30 19 26 26 26 26 19 30 15 26 11ZM15 5A1 1 0 0115 25 1 1 0 0115 5M10 9A1 1 0 0010 13 1 1 0 0010 9M8 14A1 1 0 008 16 1 1 0 008 14M12 13A1 1 0 0012 17 1 1 0 0012 13" fill="#000000"/></svg>
+			</div>
+			<div class="lang">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" class="en"><clipPath id="t"><path d="M25,15h25v15zv15h-25zh-25v-15zv-15h25z"/></clipPath><path d="M0,0v30h50v-30z" fill="#012169"/><path d="M0,0 50,30M50,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 50,30M50,0 0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M-1 11h22v-12h8v12h22v8h-22v12h-8v-12h-22z" fill="#C8102E" stroke="#FFF" stroke-width="2"/></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" class="fr" viewBox="0 0 50 30"><path d="M0 0l0 30 16.5 0 0-30z" fill="#ED2939"/><path d="M16.5 0l0 30 17 0 0-30z" fill="#fff"/><path d="M33.5 0l0 30 16.5 0 0-30z" fill="#002395"/></svg>
+			</div>
+		</div>
+		<div class="bottom">
+			this website is under development and will be updated, not all the features are yet available and some bugs may appear. In case of problem, you can contact me by the <a href="#contact">contact</a> tab
+		</div>
 	</body>
 </html>

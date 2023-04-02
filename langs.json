@@ -1,0 +1,66 @@
+{
+	"set": [ "en", "fr", "it" ],
+	"html": {
+		"html>body>div.centerGrid>div[tab=\"creation\"]>span": {
+			"en": "creations",
+			"fr": "créations"
+		},
+		"html>body>div.centerGrid>div[tab=\"contact\"]>span": {
+			"en": "contact",
+			"fr": "contact"
+		},
+		"html>body>div.centerGrid>div[tab=\"contact\"]>text>contact>div>span": {
+			"en": "how I can contact you?:",
+			"fr": "comment je peux vous contacter?:"
+		},
+		"html>body>div.centerGrid>div[tab=\"contact\"]>text>contact>div:nth-child(2)> span": {
+			"en": "what happen?:",
+			"fr": "que se passe-t-il?:"
+		},
+		"html>body>div.centerGrid>div[tab=\"contact\"]>text>contact>button": {
+			"en": "send",
+			"fr": "envoyer"
+		},
+		"html>body>div.centerGrid>div[tab=\"aboutMe\"]>div>span": {
+			"en": "about me",
+			"fr": "à propos de moi"
+		},
+		"html>body>div.centerGrid>div[tab=\"aboutSite\"]>span": {
+			"en": "about this site",
+			"fr": "à propos de ce site"
+		},
+		"html>body>div.centerGrid>div[tab=\"aboutSite\"]>text": {
+			"en": "<br>Hello,<br>My name is Lucas Iovine, I'm a 18 years old French student in audiovisual post-production.<br>At the same time as the audiovisual, I'm passionate about programming and web development, it's because I've decided to create this website by myself, to improve my programming skills and present my projects.<br><br><u>This website</u> is created in HTML, CSS and JavaScript. It's a cross-platform site hosted by GitHub Pages and the source code is available on <a href=\"https://github.com/lucasIov/lucasIov.github.io\">GitHub</a>.<br><br><br>Regarding the use of cookies, the site does not use them. For statistics (traffic, visits), I use my own script, all data are anonymous. You can check the source code of the <a href=\"./script.js\">script</a>.<br><br>Finally the site is under development, it will therefore be regularly updated. If you wish, you can contact me by the <a href=\"#contact\">contact</a> tab to give me your remarks or suggestions.<br><br>Lucas Iovine",
+			"fr": "<br>Bonjour,<br>Je m'appelle Lucas Iovine, je suis étudiant en BTS post production montage.<br> En plus de l'audiovisuel je suis passionné par la programmation et le développement web. J'ai donc décidé de créer ce site pour mettre en pratique mes compétences de programmation et présenter mes projets.<br><br><u>Ce site</u> a été créé en HTML, CSS et JavaScript. Il est hébergé par GitHub Pages et le code source est disponible sur <a href=\"https://github.com/lucasIov/lucasIov.github.io\">GitHub</a>.<br><br><br>En ce qui concerne l'utilisation des cookies, le site n'en utilise pas. Pour les statistiques (trafic, visites), j'utilise mes propres scripts. Toutes les données sont anonymes, vous pouvez vérifier le code source du <a href=\"./script.js\">script</a>.<br><br>Enfin le site est en cours de développement, il sera donc régulièrement mis à jour. Si vous le souhaitez vous pouvez me contacter par l'onglet <a href=\"#contact\">contact</a> pour me donner vos remarques ou suggestions.<br><br>Lucas Iovine"
+		},
+		"html>body>div.back": {
+			"en": "back",
+			"fr": "retour"
+		},
+		"html>body>div.bottom": {
+			"en": "this website is under development and will be updated, not all the features are not yet available and some bugs may appear. In case of problem, you can contact me by the <a href=\"#contact\">contact</a> tab",
+			"fr": "Ce site est en cours de développement et sera mis à jour, toutes les fonctionnalités ne sont pas encore disponibles et des bugs peuvent survenir.En cas de problème, vous pouvez me contacter par l'onglet <a href=\"#contact\">contact</a>"
+		},
+		"html>body>div.centerGrid>div[tab=\"contact\"]>text>div>span": {
+			"en": "find me on",
+			"fr": "retrouvez moi sur"
+		}
+	},
+	"attr": {
+		"html>body>div.centerGrid >div[tab=\"contact\"]>text>contact>div>input": {
+			"attr": "placeholder",
+			"en": "mail, phone or any other contact",
+			"fr": "mail, téléphone ou tout autre contact"
+		},
+		"html>body>div.centerGrid>div[tab=\"contact\"]>text>contact>div:nth-child(2)>input": {
+			"attr": "placeholder",
+			"en": "object",
+			"fr": "objet"
+		},
+		"html>body>div.centerGrid>div[tab=\"contact\"]>text>contact>div:nth-child(2)>textarea": {
+			"attr": "placeholder",
+			"en": "message",
+			"fr": "message"
+		}
+	}
+}
