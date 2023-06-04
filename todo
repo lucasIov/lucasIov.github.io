@@ -1,2 +1,7 @@
-- [ ] better parameter interface
-  - [ ] thème switcher
+- [x] parameter interface
+  - [x] thème switcher
+  - [x] language switcher
+
+- [ ] sections
+  - [ ] add mastodon in contact section (https://mastodon.social/@lucasiovine)
+  - [ ] create better creation section

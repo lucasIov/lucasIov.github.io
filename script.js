@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 	// const statlink = "http://localhost:8081/st.php"
-	// const statlink = "/server/st.php"
-	const statlink = "https://www.fjmessgeraete.ch/59d71404-d59e-11eb-b8bc-0242ac130003/Lucas/lucid/st.php"
+	const statlink = "/server/st.php"
+	// const statlink = "https://www.fjmessgeraete.ch/59d71404-d59e-11eb-b8bc-0242ac130003/Lucas/lucid/st.php"
 
 	/* stat
 	statistique are used to see the number of visits on the website,
