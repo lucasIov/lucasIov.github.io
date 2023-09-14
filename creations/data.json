@@ -1,42 +1,39 @@
 [
 	{
+		"name": "luka run",
+		"cover": "./creations/images/luka_run.jpg",
+		"link": "./creations/images/luka_run.mp4",
+		"keyword": [ "blender", "video" ]
+	},
+	{
+		"name": "litle keyboard",
+		"cover": "./creations/images/litle_keyboard.mp4",
+		"keyword": [ "blender", "video" ]
+	},
+	{
 		"name": "logo",
 		"cover": "./creations/images/logo_full_dark.jpg",
-		"hover": [
-			"./creations/images/logo_full_light.jpg",
-			"./creations/images/logo_animation.mp4"
-		]
-	},
-	{
-		"name": "generic",
-		"cover": "./creations/images/generic.mp4",
-		"hover": [
-			"./creations/images/generic_expert.jpg"
-		]
-	},
-	{
-		"name": "esthetic code",
-		"cover": "./creations/images/code.jpg"
+		"keyword": [ "image" ]
 	},
 	{
 		"name": "fractal creator",
-		"cover": "./creations/images/fractal.jpg"
+		"cover": "./creations/images/fractal.jpg",
+		"keyword": [ "programme", "javascript", "code", "image" ]
 	},
 	{
 		"name": "plot in night",
-		"cover": "./creations/images/plot_night.jpg"
-	},
-	{
-		"name": "like netflix",
-		"cover": "./creations/images/ceup.mp4"
+		"cover": "./creations/images/plot_night.jpg",
+		"keyword": [ "blender", "image" ]
 	},
 	{
 		"name": "city background",
-		"cover": "./creations/images/city.mp4"
+		"cover": "./creations/images/city.mp4",
+		"keyword": [ "blender", "video" ]
 	},
 	{
-		"name": "'BRISES' short film",
+		"name": "'BRISES'",
 		"cover": "./creations/images/BRISES.jpg",
-		"link": "https://youtu.be/n_YG7nZDACU"
+		"link": "https://youtu.be/n_YG7nZDACU",
+		"keyword": [ "video", "film" ]
 	}
 ]
