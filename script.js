@@ -1,7 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-	// const statlink = "http://localhost:8081/st.php"
-	// const statlink = "/server/st.php"
-	const statlink = "https://www.fjmessgeraete.ch/59d71404-d59e-11eb-b8bc-0242ac130003/Lucas/lucid/st.php"
+	const statlink = location.host === "localhost" ? "/server/st.php" : "https://www.fjmessgeraete.ch/59d71404-d59e-11eb-b8bc-0242ac130003/Lucas/lucid/st.php"
 
 	/* stat
 	statistique are used to see the number of visits on the website,
@@ -31,12 +29,14 @@ window.addEventListener('DOMContentLoaded', () => {
 		},
 	};
 	let key;
+
+	let AdminInfoEle = document.createElement('div');
+	AdminInfoEle.setAttribute('id', 'AdminInfo');
+	if (location.host === "localhost") AdminInfoEle.innerHTML += 'localhost<br>';
+	document.body.appendChild(AdminInfoEle);
 	if (statno) {
 		localStorage.setItem('stat', 'no');
-		let info = document.createElement('div');
-		info.setAttribute('id', 'nostat');
-		info.innerHTML = 'no stat';
-		document.body.appendChild(info);
+		AdminInfoEle.innerHTML += 'no stat<br>';
 	} else {
 		let nc = true
 		if (localStorage.getItem('stat') === null) key = uuid64b();
@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// open page
-	document.querySelector('html').setAttribute('page', window.location.hash.replace('#', '') || 'home');
+	document.querySelector('html').setAttribute('page', window.location.hash.replace('#', '').split("/")[0] || 'home');
 	document.querySelector('div.back').addEventListener('click', () => {window.location.hash = '';})
 	window.addEventListener('keyup', (e) => {if (e.key === 'Escape') window.location.hash = '';})
 	document.querySelectorAll('div.centerGrid > div').forEach(tab => {
@@ -101,8 +101,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// hash
 	window.addEventListener('hashchange', () => {
-		document.querySelector('html').setAttribute('page', window.location.hash.replace('#', '') || 'home');
+		let h = window.location.hash.replace('#', '').split("/")[0] || 'home'
+		document.querySelector('html').setAttribute('page', h);
 		Sinterface.send({ev: 'PO', page: window.location.hash.substr(1) || 'home'});
+		document.querySelectorAll('html>body>div.centerGrid>*').forEach(e => {
+			e.classList.remove("active");
+		})
+		h = document.querySelector(`html>body>div.centerGrid>[tab=${h}]`)
+		if (h) h.classList.add("active");
 	})
 
 	// contact
@@ -132,7 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		document.querySelector('html>body>div.centerGrid>div[tab=\"creation\"]>text').innerHTML = '<galrie></galrie>';
 		let load = false;
 		function show () {
-			if (window.location.hash.replace('#', '') === 'creation' && !load) { // if the page is creation and the creations are not loaded
+			if (window.location.hash.replace('#', '').split("/")[0] === 'creation' && !load) { // if the page is creation and the creations are not loaded
 				load = true;
 				for (let i = 0; i < creations.length; i++) {
 					let creation = creations[i];
@@ -143,15 +149,37 @@ window.addEventListener('DOMContentLoaded', () => {
 					hover : list of images or videos to display if the mouse is over the creation (close the list if the mouse is out of the creation)
 					*/
 					let ext = creation.cover.split('.').pop();
-					div.innerHTML = (
-						["jpg", "png", "webp"].includes(ext) ?
-						`<img src="${creation.cover}" alt="${creation.name}">` :
-						`<video src="${creation.cover}" alt="${creation.name}" autoplay loop muted playsinline></video>`
-					) + `<div class="name">${creation.name || ''}</div>` + `<div class="desc">${creation.description || ''}</div>`;
+					// let lightV = creation.cover.split('/')
+					// lightV.splice(lightV.length - 1, 0, "light")
+					// lightV = lightV.join('/')
+					if (["jpg", "png", "webp"].includes(ext)) {
+						let imgEle = document.createElement('img')
+						imgEle.src = creation.cover;
+						imgEle.alt = creation.name;
+						// imgEle.style.background = `url('${lightV}') no-repeat center !important` // preview of the image in litle vertion (10x less)
+						div.appendChild(imgEle)
+					} else {
+						let vidEle = document.createElement('video')
+						vidEle.src = creation.cover;
+						vidEle.alt = creation.name;
+						div.addEventListener("mouseenter", function(){ vidEle.play() })
+						div.addEventListener("mouseleave", function(){ vidEle.pause() })
+						vidEle.loop = true; vidEle.muted = true; vidEle.playsinline = true;
+						div.appendChild(vidEle)
+					}
+					let nmEle = document.createElement('div')
+					nmEle.classList.add("name")
+					nmEle.innerText = creation.name
+					div.appendChild(nmEle)
+					let kwEle = document.createElement('div')
+					kwEle.classList.add("keyword")
+					kwEle.innerText = creation.keyword.sort().join(", ")
+					div.appendChild(kwEle)
+		
 					div.addEventListener('click', () => {window.open(creation.link || creation.cover, '_blank')});
 					document.querySelector('html>body>div.centerGrid>div[tab=\"creation\"]>text>galrie').appendChild(div);
 				}
-			} else if (window.location.hash.replace('#', '') !== 'creation') { // if the page is not creation stop the videos
+			} else if (window.location.hash.replace('#', '').split("/")[0] !== 'creation') { // if the page is not creation stop the videos
 				let videos = document.querySelectorAll('html>body>div.centerGrid>div[tab=\"creation\"]>text>galrie>div>video');
 				for (let i = 0; i < videos.length; i++) videos[i].pause();
 			} else if (load) { // if the creations are loaded play the videos
@@ -159,7 +187,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				for (let i = 0; i < videos.length; i++) videos[i].play();
 			}
 		}
-		if(window.location.hash.replace('#', '') === 'creation') show();
+		if(window.location.hash.replace('#', '').split("/")[0] === 'creation') show();
 		window.addEventListener('hashchange', show);
 	})
 
