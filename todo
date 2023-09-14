@@ -5,3 +5,7 @@
 - [ ] sections
   - [ ] add mastodon in contact section (https://mastodon.social/@lucasiovine)
   - [ ] create better creation section
+
+- [ ] safe JS
+  - [ ] add a 404 const variable
+  - [ ] add a variable to now if the JS has been olready loaded and stop the script if it's the case
