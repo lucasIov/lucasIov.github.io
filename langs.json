@@ -5,10 +5,6 @@
 			"en": "creations",
 			"fr": "créations"
 		},
-		"html>body>div.centerGrid>div[tab=\"creation\"]>text>div": {
-			"en": "amazing things are loading",
-			"fr": "creations incroyables charge"
-		},
 		"html>body>div.centerGrid>div[tab=\"contact\"]>span": {
 			"en": "contact",
 			"fr": "contact"
